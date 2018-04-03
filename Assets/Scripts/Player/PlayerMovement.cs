@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour {
 	// 	yield return 0;
 	// }
 
-	public float speed = 1.5f;
+	public float speed = 2.0f;
 	private Vector3 target;
 	private float diffX;
 	private float diffY;
@@ -106,8 +106,6 @@ public class PlayerMovement : MonoBehaviour {
 			}else{
 				diffY = Mathf.Abs(target.y) + Mathf.Abs(transform.position.y);
 			}
-			Debug.Log(target);
-			Debug.Log(transform.position);
 		}
 		transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
