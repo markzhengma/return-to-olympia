@@ -3027,7 +3027,7 @@ GameObject:
   - component: {fileID: 90629119}
   m_Layer: 0
   m_Name: House_1
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15911,7 +15911,7 @@ GameObject:
   - component: {fileID: 554939979}
   m_Layer: 0
   m_Name: House_2
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21233,7 +21233,7 @@ GameObject:
   - component: {fileID: 762556282}
   m_Layer: 0
   m_Name: House_2 (1)
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28786,7 +28786,7 @@ GameObject:
   - component: {fileID: 1042117718}
   m_Layer: 0
   m_Name: House_1 (1)
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40030,7 +40030,7 @@ GameObject:
   - component: {fileID: 1435048013}
   m_Layer: 0
   m_Name: House_1 (2)
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49137,7 +49137,7 @@ GameObject:
   - component: {fileID: 1788471367}
   m_Layer: 0
   m_Name: House_1 (3)
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51153,6 +51153,7 @@ GameObject:
   - component: {fileID: 1847882728}
   - component: {fileID: 1847882727}
   - component: {fileID: 1847882726}
+  - component: {fileID: 1847882730}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -51223,6 +51224,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1847882730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1847882725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa4e03f49cbc44e9b39e2c8dbe6c6f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1725338060}
+  offset: {x: 0, y: 0, z: -10}
 --- !u!1001 &1853882306
 Prefab:
   m_ObjectHideFlags: 0
@@ -54466,7 +54480,7 @@ GameObject:
   - component: {fileID: 1978238495}
   m_Layer: 0
   m_Name: House_2 (2)
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58667,7 +58681,7 @@ GameObject:
   - component: {fileID: 2110083184}
   m_Layer: 0
   m_Name: House_2 (3)
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
