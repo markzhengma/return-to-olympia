@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	private Animator anim;
 	private string selectName;
 	private string hitName;
+	public GameObject enterHousePanel;
 
 	void Start () {
 		target = transform.position;
@@ -18,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButtonDown(0) && !enterHousePanel.active) {
 			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			target.z = transform.position.z;
 
@@ -67,6 +68,11 @@ public class PlayerMovement : MonoBehaviour {
 			target.x = transform.position.x;
 			target.y = transform.position.y;
 			hitName = "";
+			enterHousePanel.SetActive(true);
 		}
+	}
+
+	public void closePanel(){
+		enterHousePanel.SetActive(false);
 	}
 }
