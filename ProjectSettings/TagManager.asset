@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - House
+  - Door
+  - Exit
   layers:
   - Default
   - TransparentFX

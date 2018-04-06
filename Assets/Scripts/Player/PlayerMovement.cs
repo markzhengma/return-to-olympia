@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	private Animator anim;
 	private string selectName;
 	private string hitName;
-	public GameObject enterHousePanel;
+	public GameObject housePanel;
 
 	void Start () {
 		target = transform.position;
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0) && !enterHousePanel.active) {
+		if (Input.GetMouseButtonDown(0) && !housePanel.active) {
 			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			target.z = transform.position.z;
 
@@ -68,11 +69,16 @@ public class PlayerMovement : MonoBehaviour {
 			target.x = transform.position.x;
 			target.y = transform.position.y;
 			hitName = "";
-			enterHousePanel.SetActive(true);
+			if(other.gameObject.tag == "House"){
+				housePanel.SetActive(true);
+			}
+			if(other.gameObject.tag == "Exit"){
+				housePanel.SetActive(true);
+			}
 		}
 	}
 
 	public void closePanel(){
-		enterHousePanel.SetActive(false);
+		housePanel.SetActive(false);
 	}
 }
