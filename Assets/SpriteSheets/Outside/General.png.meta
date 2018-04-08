@@ -99,9 +99,9 @@ TextureImporter:
     21300184: General_92
     21300186: General_93
     21300188: General_94
-    21300190: General_95
-    21300192: General_96
-    21300194: General_97
+    21300190: road_1
+    21300192: road_2
+    21300194: road_3
     21300196: General_98
     21300198: General_99
     21300200: General_100
@@ -149,9 +149,9 @@ TextureImporter:
     21300284: General_142
     21300286: General_143
     21300288: General_144
-    21300290: General_145
-    21300292: General_146
-    21300294: General_147
+    21300290: road_4
+    21300292: road_5
+    21300294: road_6
     21300296: General_148
     21300298: General_149
     21300300: General_150
@@ -199,9 +199,9 @@ TextureImporter:
     21300384: General_192
     21300386: General_193
     21300388: General_194
-    21300390: General_195
-    21300392: General_196
-    21300394: General_197
+    21300390: road_7
+    21300392: road_8
+    21300394: road_9
     21300396: General_198
     21300398: General_199
     21300400: General_200
@@ -1730,6 +1730,9 @@ TextureImporter:
     21303446: General_1723
     21303448: General_1724
     21303450: General_1725
+    21303452: General_10
+    21303454: General_11
+    21303456: General_28
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -3156,7 +3159,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_95
+      name: road_1
       rect:
         serializedVersion: 2
         x: 608
@@ -3170,7 +3173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_96
+      name: road_2
       rect:
         serializedVersion: 2
         x: 624
@@ -3184,7 +3187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_97
+      name: road_3
       rect:
         serializedVersion: 2
         x: 640
@@ -3856,7 +3859,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_145
+      name: road_4
       rect:
         serializedVersion: 2
         x: 608
@@ -3870,7 +3873,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_146
+      name: road_5
       rect:
         serializedVersion: 2
         x: 624
@@ -3884,7 +3887,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_147
+      name: road_6
       rect:
         serializedVersion: 2
         x: 640
@@ -4556,7 +4559,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_195
+      name: road_7
       rect:
         serializedVersion: 2
         x: 608
@@ -4570,7 +4573,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_196
+      name: road_8
       rect:
         serializedVersion: 2
         x: 624
@@ -4584,7 +4587,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: General_197
+      name: road_9
       rect:
         serializedVersion: 2
         x: 640
@@ -25929,6 +25932,48 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_10
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 520
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_11
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 509
+        width: 38
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_28
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 570
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
