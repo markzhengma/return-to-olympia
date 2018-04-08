@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	private string selectName;
 	private string hitName;
 	public GameObject housePanel;
+	public GameObject dialogueBox;
 
 	void Start () {
 		target = transform.position;
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0) && !housePanel.active) {
+		if (Input.GetMouseButtonDown(0) && !housePanel.active && !dialogueBox.active) {
 			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			target.z = transform.position.z;
 
@@ -74,6 +75,9 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			if(other.gameObject.tag == "Exit"){
 				housePanel.SetActive(true);
+			}
+			if(other.gameObject.tag == "NPC"){
+				other.gameObject.GetComponent<DialogueTrigger>().triggerDialogue();
 			}
 		}
 	}
