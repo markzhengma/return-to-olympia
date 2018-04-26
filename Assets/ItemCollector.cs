@@ -21,7 +21,7 @@ public class ItemCollector : MonoBehaviour {
 	public void showOrClosePanel(){
 		showPanel = !showPanel;
 		if(showPanel){
-			panelTransform.anchoredPosition = new Vector3(430, 0, 0);
+			panelTransform.anchoredPosition = new Vector3(450, 0, 0);
 		}else{
 			panelTransform.anchoredPosition = new Vector3(0, 0, 0);
 		}

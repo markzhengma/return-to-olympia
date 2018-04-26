@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject housePanel;
 	public GameObject dialogueBox;
 	public GameObject pickUpPanel;
+	public GameObject itemBtn;
 
 	void Start () {
 		target = transform.position;
@@ -25,7 +26,8 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0) 
 			&& !housePanel.active 
 			&& !dialogueBox.active
-			&& !pickUpPanel.active) {
+			&& !pickUpPanel.active
+			&& Input.mousePosition.x <= (itemBtn.transform.position.x - 20)) {
 			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			target.z = transform.position.z;
 
