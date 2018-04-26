@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 	private string hitName;
 	public GameObject housePanel;
 	public GameObject dialogueBox;
+	public GameObject pickUpPanel;
 
 	void Start () {
 		target = transform.position;
@@ -21,7 +22,10 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0) && !housePanel.active && !dialogueBox.active) {
+		if (Input.GetMouseButtonDown(0) 
+			&& !housePanel.active 
+			&& !dialogueBox.active
+			&& !pickUpPanel.active) {
 			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			target.z = transform.position.z;
 
@@ -79,10 +83,21 @@ public class PlayerMovement : MonoBehaviour {
 			if(other.gameObject.tag == "NPC"){
 				other.gameObject.GetComponent<DialogueTrigger>().triggerDialogue();
 			}
+			if(other.gameObject.tag == "PickUp"){
+				pickUpPanel.SetActive(true);
+			}
 		}
 	}
 
-	public void closePanel(){
+	public void closeHousePanel(){
 		housePanel.SetActive(false);
+	}
+
+	public void pickUpItem(){
+		Debug.Log("picked up!!!");
+	}
+
+	public void closePickUpPanel(){
+		pickUpPanel.SetActive(false);
 	}
 }
