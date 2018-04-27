@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -16,10 +17,14 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject dialogueBox;
 	public GameObject pickUpPanel;
 	public GameObject itemBtn;
+	public GameObject sceneLoader;
+	public GameObject[] itemSpots;
+	private List<string> itemCollected;
 
 	void Start () {
 		target = transform.position;
 		anim = GetComponentInChildren<Animator>();
+		itemCollected = new List<string>();
 	}
 
 	void Update () {
@@ -75,7 +80,6 @@ public class PlayerMovement : MonoBehaviour {
 		if(other.gameObject.name == hitName){
 			target.x = transform.position.x;
 			target.y = transform.position.y;
-			hitName = "";
 			if(other.gameObject.tag == "House"){
 				housePanel.SetActive(true);
 			}
@@ -84,22 +88,44 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			if(other.gameObject.tag == "NPC"){
 				other.gameObject.GetComponent<DialogueTrigger>().triggerDialogue();
+				hitName = "";
 			}
 			if(other.gameObject.tag == "PickUp"){
 				pickUpPanel.SetActive(true);
+				pickUpPanel.GetComponentInChildren<Text>().text = "You found a " + hitName + "! Pick it up?";
 			}
 		}
 	}
 
+	public void enterHouse(){
+		sceneLoader.GetComponent<SceneLoader>().enterHouse();
+	}
+
+	public void exitHouse(){
+		sceneLoader.GetComponent<SceneLoader>().exitHouse();
+	}
+
 	public void closeHousePanel(){
 		housePanel.SetActive(false);
+		hitName = "";
 	}
 
 	public void pickUpItem(){
-		Debug.Log("picked up!!!");
+		for(int i = 0; i < itemSpots.Length; i++){
+			if(itemSpots[i].GetComponent<Image>().sprite == null){
+				itemCollected.Add(hitName);
+				itemSpots[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(hitName);
+				GameObject.Find(hitName).GetComponent<DialogueTrigger>().triggerDialogue();
+				GameObject.Find(hitName).SetActive(false);
+				break;
+			}
+		}
+		closePickUpPanel();
+		hitName = "";
 	}
 
 	public void closePickUpPanel(){
 		pickUpPanel.SetActive(false);
+		hitName = "";
 	}
 }

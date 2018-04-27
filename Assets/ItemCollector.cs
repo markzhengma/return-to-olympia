@@ -19,10 +19,11 @@ public class ItemCollector : MonoBehaviour {
 	}
 
 	public void showOrClosePanel(){
-		showPanel = !showPanel;
 		if(showPanel){
+			showPanel = !showPanel;
 			panelTransform.anchoredPosition = new Vector3(450, 0, 0);
 		}else{
+			showPanel = !showPanel;
 			panelTransform.anchoredPosition = new Vector3(0, 0, 0);
 		}
 	}
