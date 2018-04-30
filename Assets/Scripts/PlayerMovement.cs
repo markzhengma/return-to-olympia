@@ -15,16 +15,39 @@ public class PlayerMovement : MonoBehaviour {
 	private string hitName;
 	public GameObject housePanel;
 	public GameObject dialogueBox;
+	public Text dialogueName;
+	public Text dialogueText;
 	public GameObject pickUpPanel;
+	public GameObject picPanel;
 	public GameObject itemBtn;
 	public GameObject sceneLoader;
 	public GameObject[] itemSpots;
 	private List<string> itemCollected;
+	public GameObject controlPanel;
+	public GameObject dialogueManager;
+	private List<string> messageList;
+	private List<string> codeList;
+	public Text[] controlFrontTexts;
+	public Text controlBackText;
+	public GameObject picBtn;
+	public Text picText;
+	public bool missionCompleted;
 
 	void Start () {
 		target = transform.position;
 		anim = GetComponentInChildren<Animator>();
 		itemCollected = new List<string>();
+		messageList = new List<string> {"ERROR: You need to find a key to initialize the console. Look around, it should be somewhere in this room.",
+											"Key inserted. Console initialized successfully.",
+											"Running...",
+											"ERROR: Could not resolve the symbol BED. Please define BED for the console.",
+											"Mission completed."};
+		codeList = new List<string> {"Waiting for initialization...",
+										"Read the definition of BED from storage.",
+										"While BED.ToLeftWall < BED.ToRightWall, keep moving right infinitely.",
+										"While BED.ToTopWall < BED.ToBottomWall, keep moving down infinitely.",
+										"DONE."};
+		missionCompleted = false;
 	}
 
 	void Update () {
@@ -32,6 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 			&& !housePanel.active 
 			&& !dialogueBox.active
 			&& !pickUpPanel.active
+			&& !controlPanel.active
 			&& Input.mousePosition.x <= (itemBtn.transform.position.x - 20)) {
 			target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			target.z = transform.position.z;
@@ -87,12 +111,29 @@ public class PlayerMovement : MonoBehaviour {
 				housePanel.SetActive(true);
 			}
 			if(other.gameObject.tag == "NPC"){
-				other.gameObject.GetComponent<DialogueTrigger>().triggerDialogue();
+				if(missionCompleted == false){
+					other.gameObject.GetComponent<DialogueTrigger>().triggerDialogue();
+				}else if(missionCompleted == true && other.gameObject.name == "DJ"){
+					dialogueBox.SetActive(true);
+					dialogueName.text = "Dwayne Johnson";
+					dialogueText.text = "That is perfect! Did you do it with the console? Man, I wish I never discard the technologies!";
+				}
 				hitName = "";
 			}
 			if(other.gameObject.tag == "PickUp"){
 				pickUpPanel.SetActive(true);
 				pickUpPanel.GetComponentInChildren<Text>().text = "You found a " + hitName + "! Pick it up?";
+			}
+
+			if(other.gameObject.name == "Bed"){
+				picPanel.SetActive(true);
+				if(itemCollected.Contains("Camera") && itemCollected.Contains("BEDChest") && !itemCollected.Contains("BEDPic")){
+					picBtn.SetActive(true);
+					picText.text = "This is the BED. Do you want to take a picture with your Camera?";
+				}else if(!itemCollected.Contains("Camera") || !itemCollected.Contains("BEDChest")){
+					picBtn.SetActive(false);
+					picText.text = "This is the BED. You could store the picture of it in your chest for the console to read. But first, you need to find the Camera and the BED Chest.";
+				}
 			}
 		}
 	}
@@ -127,5 +168,76 @@ public class PlayerMovement : MonoBehaviour {
 	public void closePickUpPanel(){
 		pickUpPanel.SetActive(false);
 		hitName = "";
+	}
+
+	public void openControlPanel(){
+		controlPanel.SetActive(true);
+		if(itemCollected.Contains("Key")){
+			controlBackText.text = messageList[1];
+			controlBackText.color = new Color(255.0f/255.0f, 255.0f/255.0f, 255.0f/255.0f);
+			for(int i = 0; i < controlFrontTexts.Length; i ++){
+				controlFrontTexts[i].text = codeList[i + 1];
+			};
+		}else{
+			controlFrontTexts[0].text = codeList[0];
+			controlBackText.text = messageList[0];
+		}
+	}
+
+	public void runCode(){
+		StartCoroutine(ExecuteAfterTime());
+	}
+
+	IEnumerator ExecuteAfterTime()
+	{
+		for(int i = 0; i < controlFrontTexts.Length; i ++){
+			controlFrontTexts[i].color = new Color(255.0f/255.0f, 0f/255.0f, 0f/255.0f);
+			controlBackText.text = messageList[2];
+			yield return new WaitForSeconds(2);
+			if(!itemCollected.Contains("BEDChest") || !itemCollected.Contains("BEDPic")){
+				controlBackText.text = messageList[3];
+				controlBackText.color = new Color(255.0f/255.0f, 0f/255.0f, 0f/255.0f);
+				break;
+			};
+			if(i == 1){
+				while(GameObject.Find("Bed").transform.position.x < 4.3){
+					GameObject.Find("Bed").transform.position = new Vector3(GameObject.Find("Bed").transform.position.x + 1, GameObject.Find("Bed").transform.position.y, GameObject.Find("Bed").transform.position.z);
+					yield return new WaitForSeconds(0.5f);
+				}
+			};
+			if(i == 2){
+				while(GameObject.Find("Bed").transform.position.y > 1.47){
+					GameObject.Find("Bed").transform.position = new Vector3(GameObject.Find("Bed").transform.position.x, GameObject.Find("Bed").transform.position.y - 1, GameObject.Find("Bed").transform.position.z);
+					yield return new WaitForSeconds(0.5f);
+				}
+			};
+			if(i == (controlFrontTexts.Length - 1)){
+				controlBackText.text = messageList[4];
+				controlBackText.color = new Color(255.0f/255.0f, 255.0f/255.0f, 255.0f/255.0f);
+				missionCompleted = true;
+			}
+		}
+	}
+
+	public void closeControlPanel(){
+		controlPanel.SetActive(false);
+	}
+
+	public void takePicture(){
+		hitName = "BEDPic";
+		for(int i = 0; i < itemSpots.Length; i++){
+			if(itemSpots[i].GetComponent<Image>().sprite == null){
+				itemCollected.Add(hitName);
+				itemSpots[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(hitName);
+				GameObject.Find("Bed").GetComponent<DialogueTrigger>().triggerDialogue();
+				break;
+			}
+		}
+		closePicPanel();
+		hitName = "";
+	}
+
+	public void closePicPanel(){
+		picPanel.SetActive(false);
 	}
 }

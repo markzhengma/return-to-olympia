@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour {
 	public Text nameText;
 	public Text dialogueText;
 	public GameObject dialogueBox;
+	public GameObject player;
 
 	private Queue<string> sentences;
 
@@ -38,5 +39,8 @@ public class DialogueManager : MonoBehaviour {
 
 	void endDialogue(){
 		dialogueBox.SetActive(false);
+		if(nameText.text == "Console"){
+			player.GetComponent<PlayerMovement>().openControlPanel();
+		}
 	}
 }
