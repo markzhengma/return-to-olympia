@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 	public Text controlBackText;
 	public GameObject picBtn;
 	public Text picText;
+	public Text houseText;
 	public bool missionCompleted;
 
 	void Start () {
@@ -40,12 +41,12 @@ public class PlayerMovement : MonoBehaviour {
 		messageList = new List<string> {"ERROR: You need to find a key to initialize the console. Look around, it should be somewhere in this room.",
 											"Key inserted. Console initialized successfully.",
 											"Running...",
-											"ERROR: Could not resolve the symbol BED. Please define BED for the console.",
-											"Mission completed."};
+											"ERROR: Could not resolve the symbol BED. Please define BED for the console. (HINT: Let the console know what the BED looks like. In order to do this, you have to use a tool that stores what the BED looks like...)",
+											"Mission completed. (\"Have you been to the OLYMPIA? It's an amazing place with all the high level technologies. People built their homes on top of the high-techs over ther and they are living a very happy life!\")"};
 		codeList = new List<string> {"Waiting for initialization...",
 										"Read the definition of BED from storage.",
-										"While BED.ToLeftWall < BED.ToRightWall, keep moving right infinitely.",
-										"While BED.ToTopWall < BED.ToBottomWall, keep moving down infinitely.",
+										"While (BED.ToLeftWall < BED.ToRightWall), {keep moving right infinitely}.",
+										"While (BED.ToTopWall < BED.ToBottomWall), {keep moving down infinitely}.",
 										"DONE."};
 		missionCompleted = false;
 	}
@@ -106,6 +107,9 @@ public class PlayerMovement : MonoBehaviour {
 			target.y = transform.position.y;
 			if(other.gameObject.tag == "House"){
 				housePanel.SetActive(true);
+				if(other.gameObject.name == "Olympia"){
+					houseText.text = "Enter the Olylmpia?";
+				}
 			}
 			if(other.gameObject.tag == "Exit"){
 				housePanel.SetActive(true);

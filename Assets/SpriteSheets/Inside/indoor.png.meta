@@ -220,7 +220,7 @@ TextureImporter:
     21300426: indoor_213
     21300428: sofa_7
     21300430: sofa_9
-    21300432: indoor_216
+    21300432: Machine
     21300434: indoor_217
     21300436: sofa_4
     21300438: sofa_1
@@ -507,6 +507,8 @@ TextureImporter:
     21301000: indoor_500
     21301002: indoor_501
     21301004: indoor_502
+    21301006: ConsoleFull
+    21301008: ConsoleFull_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -3627,13 +3629,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: indoor_216
+      name: Machine
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
-        width: 16
-        height: 16
+        x: 1
+        y: 287
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -7640,6 +7642,34 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ConsoleFull
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 198
+        width: 16
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ConsoleFull_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 31
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

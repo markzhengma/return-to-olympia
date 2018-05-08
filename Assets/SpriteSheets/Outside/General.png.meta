@@ -1733,6 +1733,17 @@ TextureImporter:
     21303452: General_10
     21303454: General_11
     21303456: General_28
+    21303458: General_39
+    21303460: General_40
+    21303462: General_60
+    21303464: General_81
+    21303466: General_95
+    21303468: General_96
+    21303470: General_97
+    21303472: General_130
+    21303474: General_132
+    21303476: General_145
+    21303478: General_146
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -23616,7 +23627,7 @@ TextureImporter:
       name: General_1560
       rect:
         serializedVersion: 2
-        x: 464
+        x: 465
         y: 64
         width: 16
         height: 16
@@ -25945,7 +25956,7 @@ TextureImporter:
         width: 22
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -25959,7 +25970,7 @@ TextureImporter:
         width: 38
         height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -25972,6 +25983,160 @@ TextureImporter:
         y: 570
         width: 31
         height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_39
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 340
+        width: 86
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_40
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 340
+        width: 86
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_60
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 47
+        width: 163
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_81
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 44
+        width: 168
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_95
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 335
+        width: 45
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_96
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 5
+        width: 80
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_97
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 5
+        width: 291
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_130
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 391
+        width: 30
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_132
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 3
+        width: 50
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_145
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 226
+        width: 89
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: General_146
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 398
+        width: 63
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
