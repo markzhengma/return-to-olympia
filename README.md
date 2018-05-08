@@ -1,5 +1,5 @@
 # Return to Olympia
-Developer: Mark Zheng Ma
+Developer: Mark Zheng Ma  
 Game Designer: Daniel Ahn
 ## Description
 A JRPG consisted with constructionism theory and endogenously teaches computational thoughts.
